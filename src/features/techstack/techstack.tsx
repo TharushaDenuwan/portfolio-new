@@ -23,28 +23,28 @@ import intellij from '../../../public/techstack/intellij.png'
 
 export default function TechStackSection() {
   const professionalSkills = [
-    { name: 'JAVA', img: java, color: 'bg-white text-blue-800 border-blue-200' },
-    { name: 'HTML', img: html, color: 'bg-white text-blue-800 border-blue-200' },
-    { name: 'CSS', img: css, color: 'bg-white text-blue-800 border-blue-200' },
-    { name: 'TAILWIND CSS', img: tailwind, color: 'bg-white text-blue-800 border-blue-200' },
-    { name: 'NEXT.JS', img: nextjs, color: 'bg-white text-blue-800 border-blue-200' },
-    { name: 'REACT', img: react, color: 'bg-white text-blue-800 border-blue-200' },
-    { name: 'NODE.JS', img: nodejs, color: 'bg-white text-blue-800 border-blue-200' },
-    { name: 'ANGULAR', img: angular, color: 'bg-white text-blue-800 border-blue-200' },
-    { name: 'SPRINGBOOT', img: springboot, color: 'bg-white text-blue-800 border-blue-200' },
-    { name: 'JAVASCRIPT', img: javascript, color: 'bg-white text-blue-800 border-blue-200' },
+    { name: 'JAVA', img: java, color: 'bg-white/20 backdrop-blur-md text-gray-800 border-white/30' },
+    { name: 'HTML', img: html, color: 'bg-white/20 backdrop-blur-md text-gray-800 border-white/30' },
+    { name: 'CSS', img: css, color: 'bg-white/20 backdrop-blur-md text-gray-800 border-white/30' },
+    { name: 'TAILWIND CSS', img: tailwind, color: 'bg-white/20 backdrop-blur-md text-gray-800 border-white/30' },
+    { name: 'NEXT.JS', img: nextjs, color: 'bg-white/20 backdrop-blur-md text-gray-800 border-white/30' },
+    { name: 'REACT', img: react, color: 'bg-white/20 backdrop-blur-md text-gray-800 border-white/30' },
+    { name: 'NODE.JS', img: nodejs, color: 'bg-white/20 backdrop-blur-md text-gray-800 border-white/30' },
+    { name: 'ANGULAR', img: angular, color: 'bg-white/20 backdrop-blur-md text-gray-800 border-white/30' },
+    { name: 'SPRINGBOOT', img: springboot, color: 'bg-white/20 backdrop-blur-md text-gray-800 border-white/30' },
+    { name: 'JAVASCRIPT', img: javascript, color: 'bg-white/20 backdrop-blur-md text-gray-800 border-white/30' },
   ];
 
   const tools = [
-    { name: 'VISUAL STUDIO CODE', img: vscode, color: 'bg-white text-blue-800 border-blue-200' },
-    { name: 'VISUAL STUDIO', img: vs, color: 'bg-white text-blue-800 border-blue-200' },
-    { name: 'MYSQL', img: mysql, color: 'bg-white text-blue-800 border-blue-200' },
-    { name: 'SQL', img: sql, color: 'bg-white text-blue-800 border-blue-200' },
-    { name: 'MONGODB', img: mongodb, color: 'bg-white text-blue-800 border-blue-200' },
-    { name: 'POSTGRESQL', img: postgresql, color: 'bg-white text-blue-800 border-blue-200' },
-    { name: 'GITHUB', img: github, color: 'bg-white text-blue-800 border-blue-200' },
-    { name: 'DOCKER', img: docker, color: 'bg-white text-blue-800 border-blue-200' },
-    { name: 'INTELLIJ', img: intellij, color: 'bg-white text-blue-800 border-blue-200' }
+    { name: 'VISUAL STUDIO CODE', img: vscode, color: 'bg-white/20 backdrop-blur-md text-gray-800 border-white/30' },
+    { name: 'VISUAL STUDIO', img: vs, color: 'bg-white/20 backdrop-blur-md text-gray-800 border-white/30' },
+    { name: 'MYSQL', img: mysql, color: 'bg-white/20 backdrop-blur-md text-gray-800 border-white/30' },
+    { name: 'SQL', img: sql, color: 'bg-white/20 backdrop-blur-md text-gray-800 border-white/30' },
+    { name: 'MONGODB', img: mongodb, color: 'bg-white/20 backdrop-blur-md text-gray-800 border-white/30' },
+    { name: 'POSTGRESQL', img: postgresql, color: 'bg-white/20 backdrop-blur-md text-gray-800 border-white/30' },
+    { name: 'GITHUB', img: github, color: 'bg-white/20 backdrop-blur-md text-gray-800 border-white/30' },
+    { name: 'DOCKER', img: docker, color: 'bg-white/20 backdrop-blur-md text-gray-800 border-white/30' },
+    { name: 'INTELLIJ', img: intellij, color: 'bg-white/20 backdrop-blur-md text-gray-800 border-white/30' }
   ];
 
   return (
@@ -66,16 +66,16 @@ export default function TechStackSection() {
             {professionalSkills.map((skill, index) => (
               <div
                 key={index}
-                className={`${skill.color} p-6 rounded-2xl text-center hover:scale-105 transition-all duration-300 shadow-sm hover:shadow-lg border-2 cursor-pointer group`}
+                className={`${skill.color} p-6 rounded-2xl text-center hover:scale-105 hover:bg-white/30 transition-all duration-300 shadow-lg hover:shadow-xl border-2 cursor-pointer group hover:border-white/50`}
               >
-                <div className="mb-3 group-hover:scale-110 transition-transform duration-300 flex justify-center">
+                <div className="mb-4 group-hover:scale-110 transition-transform duration-300 flex justify-center">
                   <img 
                     src={skill.img.src} 
                     alt={skill.name} 
-                    className="w-12 h-12 object-contain"
+                    className="w-14 h-14 object-contain drop-shadow-sm"
                   />
                 </div>
-                <div className="font-bold text-sm leading-tight">
+                <div className="font-semibold text-sm leading-tight drop-shadow-sm">
                   {skill.name}
                 </div>
               </div>
@@ -98,16 +98,16 @@ export default function TechStackSection() {
             {tools.map((tool, index) => (
               <div
                 key={index}
-                className={`${tool.color} p-6 rounded-2xl text-center hover:scale-105 transition-all duration-300 shadow-sm hover:shadow-lg border-2 cursor-pointer group`}
+                className={`${tool.color} p-6 rounded-2xl text-center hover:scale-105 hover:bg-white/30 transition-all duration-300 shadow-lg hover:shadow-xl border-2 cursor-pointer group hover:border-white/50`}
               >
-                <div className="mb-3 group-hover:scale-110 transition-transform duration-300 flex justify-center">
+                <div className="mb-4 group-hover:scale-110 transition-transform duration-300 flex justify-center">
                   <img 
                     src={tool.img.src} 
                     alt={tool.name} 
-                    className="w-12 h-12 object-contain"
+                    className="w-14 h-14 object-contain drop-shadow-sm"
                   />
                 </div>
-                <div className="font-bold text-sm leading-tight">
+                <div className="font-semibold text-sm leading-tight drop-shadow-sm">
                   {tool.name}
                 </div>
               </div>
