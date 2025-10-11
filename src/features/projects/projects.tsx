@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 export default function ProjectsSection() {
   const [activeFilter, setActiveFilter] = useState('All');
+  const [visibleProjects, setVisibleProjects] = useState(6);
 
   const filters = ['All', 'Group Projects', 'Individual Projects'];
 
@@ -11,6 +12,61 @@ export default function ProjectsSection() {
   const projects = [
     {
       id: 1,
+      title: 'Student and University Management System',
+      description: 'MyUnivrs is a unified student platform designed to enhance campus life. It offers exclusive university chat groups, a student marketplace, real-time event discovery, and housing solutions. The platform connects students in a safe and trusted environment, helping them settle in faster, socialize, trade goods securely, and never miss out on campus activities.',
+      category: 'Group Projects',
+      technologies: ['Next.js', 'Next.js API', 'PostgreSQL', 'Tailwind CSS', 'Better Auth'],
+      image: '/projects/myunivrs.png',
+      liveUrl: 'https://example.com',
+      githubUrl: 'https://github.com/example',
+      status: 'Completed'
+    },
+    {
+      id: 2,
+      title: 'Hotel Booking System',
+      description: 'Bloonsoo is an online hotel booking platform. It allows users to search, filter, and book hotels, view room details, and manage reservations. The platform is built using Next.js for the front end, Next.js API for backend routes, and PostgreSQL for data management, providing a fast, secure, and user-friendly experience.',
+      category: 'Group Projects',
+      technologies: ['Next.js', 'Next.js API', 'PostgreSQL', 'Tailwind CSS', 'Better Auth'],
+      image: '/projects/bloonsoo.png',
+      liveUrl: 'https://example.com',
+      githubUrl: 'https://github.com/example',
+      status: 'Completed'
+    },
+    {
+      id: 3,
+      title: 'Nursery Management System',
+      description: 'Kidlink is a web application designed for nurseries to efficiently manage students, classes, teachers, and parents. It allows tracking of attendance, class schedules, student progress, and lesson plans. The system also provides features for managing notifications, assignments, and parent-teacher communication, ensuring smooth daily operations.',
+      category: 'Group Projects',
+      technologies: ['Next.js', 'Next.js API', 'PostgreSQL', 'Tailwind CSS', 'Better Auth'],
+      image: '/projects/kidlink.png',
+      liveUrl: 'https://example.com',
+      githubUrl: 'https://github.com/example',
+      status: 'Completed'
+    },
+    {
+      id: 4,
+      title: 'Hotel Booking System',
+      description: 'Bloonsoo is an online hotel booking platform. It allows users to search, filter, and book hotels, view room details, and manage reservations. The platform is built using Next.js for the front end, Next.js API for backend routes, and PostgreSQL for data management, providing a fast, secure, and user-friendly experience.',
+      category: 'Group Projects',
+      technologies: ['Next.js', 'Next.js API', 'PostgreSQL', 'Tailwind CSS', 'Better Auth'],
+      image: '/projects/bloonsoo.png',
+      liveUrl: 'https://example.com',
+      githubUrl: 'https://github.com/example',
+      status: 'Completed'
+    },
+    {
+      id: 5,
+      title: 'Extravaganza',
+      description: 'This is a web app that connects event organizers and planners on a single platform. The system includes features such as budget filtering, location filtering, a chatbot, and more.',
+      category: 'Group Projects',
+      technologies: ['React', 'Node.js', 'Mongodb', 'Github'],
+      image: '/projects/extravaganza.png',
+      liveUrl: 'https://example.com',
+      githubUrl: 'https://github.com/example',
+      status: 'Completed'
+    },
+    {
+      id: 6,
       title: 'Event Management System',
       description: 'This is a web app that connects event organizers and planners on a single platform. The system includes features such as budget filtering, location filtering, a chatbot, and more.',
       category: 'Group Projects',
@@ -21,7 +77,7 @@ export default function ProjectsSection() {
       status: 'Completed'
     },
     {
-      id: 2,
+      id: 7,
       title: 'Student Management System (CLI)',
       description: 'This is a Java-based application designed to help manage personal finances efficiently. The system allows users to add, remove, and update student financial records, providing a simple and organized way to track and manage expenses, budgets, and financial data.',
       category: 'Individual Projects',
@@ -32,7 +88,7 @@ export default function ProjectsSection() {
       status: 'Completed'
     },
     {
-      id: 3,
+      id: 8,
       title: 'website on Affordable and clean energy',
       description: 'This is a web platform that promotes affordable and clean energy solutions. The system provides insights into renewable energy sources, cost-effective alternatives, and sustainable practices.',
       category: 'Group Projects',
@@ -43,7 +99,7 @@ export default function ProjectsSection() {
       status: 'Completed'
     },
     {
-      id: 4,
+      id: 9,
       title: 'Personal Portfolio',
       description: 'A modern, responsive portfolio website showcasing my projects and skills. Features smooth animations and optimized performance.',
       category: 'Individual Projects',
@@ -54,23 +110,34 @@ export default function ProjectsSection() {
       status: 'Completed'
     },
     {
-      id: 5,
-      title: 'Mobile Banking App',
-      description: 'A secure mobile banking application with biometric authentication, transaction history, and budget tracking features.',
-      category: 'Group Projects',
-      technologies: ['Flutter', 'Firebase', 'Node.js'],
-      image: '/projects/banking.jpg',
+      id: 10,
+      title: 'Movie Explorer App',
+      description: 'A movie discovery platform that allows users to search for and explore movies based on various criteria such as genre, release date, and ratings.',
+      category: 'Individual Projects',
+      technologies: ['React', 'Axios', 'Node.js'],
+      image: '/projects/movieapp.png',
       liveUrl: 'https://example.com',
       githubUrl: 'https://github.com/example',
       status: 'In Progress'
     },
     {
-      id: 6,
-      title: 'Weather Dashboard',
-      description: 'A weather dashboard with location-based forecasts, interactive maps, and weather alerts. Integrates with multiple weather APIs.',
+      id: 11,
+      title: 'Flow-Max',
+      description: 'An algorithmic system that determines the maximum possible flow or capacity between a source and a sink in a network, optimizing how resources move through connected paths.',
       category: 'Individual Projects',
-      technologies: ['React', 'Weather API', 'Chart.js'],
-      image: '/projects/weather.jpg',
+      technologies: ['Java'],
+      image: '/projects/flowmax.png',
+      liveUrl: 'https://example.com',
+      githubUrl: 'https://github.com/example',
+      status: 'Completed'
+    },
+    {
+      id: 12,
+      title: 'Ticket-Management-App',
+      description: 'A real-time ticket management system that facilitates dynamic interaction between vendors and customers. Vendors release tickets into a shared ticket pool, while customers can purchase them instantly.',
+      category: 'Individual Projects',
+      technologies: ['Java', 'Node.js', 'React','Axios'],
+      image: '/projects/ticket.png',
       liveUrl: 'https://example.com',
       githubUrl: 'https://github.com/example',
       status: 'Completed'
@@ -81,6 +148,21 @@ export default function ProjectsSection() {
   const filteredProjects = activeFilter === 'All' 
     ? projects 
     : projects.filter(project => project.category === activeFilter);
+
+  // Get visible projects based on current limit
+  const displayedProjects = filteredProjects.slice(0, visibleProjects);
+  const hasMoreProjects = filteredProjects.length > visibleProjects;
+
+  // Handle load more functionality
+  const loadMore = () => {
+    setVisibleProjects(prev => prev + 6);
+  };
+
+  // Reset visible projects when filter changes
+  const handleFilterChange = (filter: string) => {
+    setActiveFilter(filter);
+    setVisibleProjects(6);
+  };
 
   return (
     <section className="bg-white relative">
@@ -100,7 +182,7 @@ export default function ProjectsSection() {
             {filters.map((filter) => (
               <button
                 key={filter}
-                onClick={() => setActiveFilter(filter)}
+                onClick={() => handleFilterChange(filter)}
                 className={`px-6 py-3 rounded-full font-medium text-sm transition-all duration-300 ${
                   activeFilter === filter
                     ? 'bg-blue-600 text-white shadow-lg'
@@ -115,7 +197,7 @@ export default function ProjectsSection() {
 
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project) => (
+          {displayedProjects.map((project) => (
             <div
               key={project.id}
               className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-200 group hover:scale-105"
@@ -195,6 +277,18 @@ export default function ProjectsSection() {
             </div>
           ))}
         </div>
+
+        {/* Load More Button */}
+        {hasMoreProjects && (
+          <div className="text-center mt-12">
+            <button
+              onClick={loadMore}
+              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-medium text-sm transition-all duration-300 hover:shadow-lg hover:scale-105"
+            >
+              Load More Projects ({filteredProjects.length - visibleProjects} remaining)
+            </button>
+          </div>
+        )}
 
         {/* Empty State */}
         {filteredProjects.length === 0 && (
