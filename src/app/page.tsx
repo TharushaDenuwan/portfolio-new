@@ -4,6 +4,7 @@ import Navigation from '@/features/navigation/navigation';
 import AboutSection from '@/features/about/about';
 import TechStackSection from '@/features/techstack/techstack';
 import ProjectsSection from '@/features/projects/projects';
+import CertificatesSection from '@/features/certificates/certificates';
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <AboutSection/>
       <TechStackSection/>
       < ProjectsSection/>
+      <CertificatesSection/>
     </div>
   );
 }

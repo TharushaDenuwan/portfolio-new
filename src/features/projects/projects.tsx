@@ -56,11 +56,11 @@ export default function ProjectsSection() {
     },
     {
       id: 5,
-      title: 'Extravaganza',
+      title: 'Job Management System',
       description: 'This is a web app that connects event organizers and planners on a single platform. The system includes features such as budget filtering, location filtering, a chatbot, and more.',
       category: 'Group Projects',
-      technologies: ['React', 'Node.js', 'Mongodb', 'Github'],
-      image: '/projects/extravaganza.png',
+      technologies: ['Next.js', 'Next.js API', 'PostgreSQL', 'Tailwind CSS', 'Better Auth'],
+      image: '/projects/ejobs.png',
       liveUrl: 'https://example.com',
       githubUrl: 'https://github.com/example',
       status: 'Completed'
@@ -104,7 +104,7 @@ export default function ProjectsSection() {
       description: 'A modern, responsive portfolio website showcasing my projects and skills. Features smooth animations and optimized performance.',
       category: 'Individual Projects',
       technologies: ['Next.js', 'Tailwind CSS', 'Framer Motion'],
-      image: '/projects/portfolio.jpg',
+      image: '/projects/portfolio.png',
       liveUrl: 'https://example.com',
       githubUrl: 'https://github.com/example',
       status: 'Completed'
@@ -141,7 +141,7 @@ export default function ProjectsSection() {
       liveUrl: 'https://example.com',
       githubUrl: 'https://github.com/example',
       status: 'Completed'
-    }
+    },
   ];
 
   // Filter projects based on selected category
@@ -278,15 +278,27 @@ export default function ProjectsSection() {
           ))}
         </div>
 
-        {/* Load More Button */}
-        {hasMoreProjects && (
+        {/* Load More / Show Less Buttons */}
+        {(hasMoreProjects || visibleProjects > 6) && (
           <div className="text-center mt-12">
-            <button
-              onClick={loadMore}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-medium text-sm transition-all duration-300 hover:shadow-lg hover:scale-105"
-            >
-              Load More Projects ({filteredProjects.length - visibleProjects} remaining)
-            </button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              {hasMoreProjects && (
+                <button
+                  onClick={loadMore}
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-medium text-sm transition-all duration-300 hover:shadow-lg hover:scale-105"
+                >
+                  Load More Projects ({filteredProjects.length - visibleProjects} remaining)
+                </button>
+              )}
+              {visibleProjects > 6 && (
+                <button
+                  onClick={() => setVisibleProjects(6)}
+                  className="bg-gray-600 hover:bg-gray-700 text-white px-8 py-3 rounded-full font-medium text-sm transition-all duration-300 hover:shadow-lg hover:scale-105"
+                >
+                  Show Less
+                </button>
+              )}
+            </div>
           </div>
         )}
 
