@@ -48,7 +48,7 @@ export default function TechStackSection() {
   ];
 
   return (
-    <section className="bg-blue-100 relative">
+    <section id="skills" className="bg-blue-100 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-25 pb-20 relative">
         
         {/* Professional Skillset Section */}

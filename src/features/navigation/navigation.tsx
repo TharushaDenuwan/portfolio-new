@@ -6,11 +6,43 @@ import { useState } from 'react';
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  // Smooth scroll function
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      const navHeight = 64; // Height of the fixed navigation (h-16 = 64px)
+      const elementPosition = targetElement.offsetTop - navHeight;
+      
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      });
+    }
+    
+    // Close mobile menu if open
+    setIsMenuOpen(false);
+  };
+
+  // Smooth scroll to top function
+  const handleScrollToTop = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+    
+    // Close mobile menu if open
+    setIsMenuOpen(false);
+  };
+
   const navItems = [
-    { name: 'About', href: '#about' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Certifications', href: '#certifications' },
+    { name: 'About', href: '#about', targetId: 'about' },
+    { name: 'Skills', href: '#skills', targetId: 'skills' },
+    { name: 'Projects', href: '#projects', targetId: 'projects' },
+    { name: 'Certifications', href: '#certifications', targetId: 'certifications' },
   ];
 
   return (
@@ -21,7 +53,8 @@ const Navigation = () => {
           <div className="flex-shrink-0 min-w-0">
             <Link
               href="/"
-              className="inline-flex items-baseline space-x-1 text-gray-900 hover:text-blue-600 transition-colors duration-300"
+              onClick={handleScrollToTop}
+              className="inline-flex items-baseline space-x-1 text-gray-900 hover:text-blue-600 transition-colors duration-300 cursor-pointer"
             >
             <span className="text-3xl sm:text-4xl font-extrabold leading-none text-blue-600">Port</span>
               <span className="text-base sm:text-lg font-medium">folio</span>
@@ -35,6 +68,7 @@ const Navigation = () => {
                 <Link
                   key={item.name}
                   href={item.href}
+                  onClick={(e) => handleSmoothScroll(e, item.targetId)}
                   className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 hover:bg-blue-50"
                 >
                   {item.name}
@@ -47,6 +81,7 @@ const Navigation = () => {
           <div className="hidden md:block flex-shrink-0">
             <Link
               href="#contact"
+              onClick={(e) => handleSmoothScroll(e, 'contact')}
               className="bg-blue-600 hover:bg-blue-700 text-white px-4 lg:px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:shadow-lg hover:scale-105"
             >
               Contact
@@ -106,16 +141,16 @@ const Navigation = () => {
             <Link
               key={item.name}
               href={item.href}
+              onClick={(e) => handleSmoothScroll(e, item.targetId)}
               className="text-gray-700 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-300 hover:bg-blue-50 w-full truncate"
-              onClick={() => setIsMenuOpen(false)}
             >
               {item.name}
             </Link>
           ))}
           <Link
             href="#contact"
+            onClick={(e) => handleSmoothScroll(e, 'contact')}
             className="bg-blue-600 hover:bg-blue-700 text-white block px-3 py-2 rounded-md text-base font-medium transition-colors duration-300 mt-4 w-full text-center truncate"
-            onClick={() => setIsMenuOpen(false)}
           >
             Contact
           </Link>

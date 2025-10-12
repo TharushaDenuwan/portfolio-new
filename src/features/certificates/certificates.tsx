@@ -97,7 +97,7 @@ export default function CertificatesSection() {
   };
 
   return (
-    <section className="bg-gray-50 relative">
+    <section id="certifications" className="bg-gray-50 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-25 pb-20 relative">
         
         {/* Header Section */}
