@@ -53,14 +53,14 @@ export default function ConnectSection() {
           </p>
         </div>
 
-        <div className="max-w-2xl mx-auto">
+        <div className="max-w-lg mx-auto">
           {/* Contact Form */}
-          <div className="bg-white rounded-2xl border border-gray-200 p-8 shadow-lg">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+          <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-lg">
+            <h3 className="text-xl font-bold text-gray-900 mb-4 text-center">
               Send a Message
             </h3>
             
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-4">
               {/* Name Input */}
               <div>
                 <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
@@ -73,7 +73,7 @@ export default function ConnectSection() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition-colors"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition-colors"
                   placeholder="Enter your full name"
                 />
               </div>
@@ -90,7 +90,7 @@ export default function ConnectSection() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition-colors"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition-colors"
                   placeholder="your.email@example.com"
                 />
               </div>
@@ -107,7 +107,7 @@ export default function ConnectSection() {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition-colors"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition-colors"
                   placeholder="What's this about?"
                 />
               </div>
@@ -123,8 +123,8 @@ export default function ConnectSection() {
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  rows={6}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition-colors resize-none"
+                  rows={4}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition-colors resize-none"
                   placeholder="Tell me about your project, idea, or just say hello..."
                 />
               </div>
@@ -134,7 +134,7 @@ export default function ConnectSection() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`w-full py-4 px-6 rounded-lg font-semibold text-white transition-all duration-300 ${
+                  className={`w-full py-3 px-4 rounded-lg font-semibold text-white transition-all duration-300 ${
                     isSubmitting
                       ? 'bg-gray-400 cursor-not-allowed'
                       : 'bg-blue-600 hover:bg-blue-700 hover:shadow-lg'
@@ -161,7 +161,7 @@ export default function ConnectSection() {
           </div>
 
           {/* Social Media */}
-          <div className="mt-16 pt-16 border-t border-gray-200 text-center">
+          <div className="mt-12 pt-12 border-t border-gray-200 text-center">
             {/* <h3 className="text-3xl font-bold text-blue-600 mb-4">
               FIND ME ON
             </h3>

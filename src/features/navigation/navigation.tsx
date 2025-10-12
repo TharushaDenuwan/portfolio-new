@@ -14,17 +14,17 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200 shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200 shadow-sm w-full">
+      <div className="w-full max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
+        <div className="flex items-center justify-between h-16 w-full">
           {/* Left side - Portfolio Logo */}
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 min-w-0">
             <Link
               href="/"
               className="inline-flex items-baseline space-x-1 text-gray-900 hover:text-blue-600 transition-colors duration-300"
             >
-            <span className="text-4xl font-extrabold leading-none text-blue-600">Port</span>
-              <span className="text-lg font-medium">folio</span>
+            <span className="text-3xl sm:text-4xl font-extrabold leading-none text-blue-600">Port</span>
+              <span className="text-base sm:text-lg font-medium">folio</span>
             </Link>
           </div>
 
@@ -44,20 +44,20 @@ const Navigation = () => {
           </div>
 
           {/* Right side - Contact */}
-          <div className="hidden md:block">
+          <div className="hidden md:block flex-shrink-0">
             <Link
               href="#contact"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:shadow-lg hover:scale-105"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-4 lg:px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:shadow-lg hover:scale-105"
             >
               Contact
             </Link>
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="md:hidden flex-shrink-0">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 transition-colors duration-300"
+              className="inline-flex items-center justify-center p-1.5 rounded-md text-gray-700 hover:text-blue-600 hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 transition-colors duration-300"
               aria-expanded="false"
             >
               <span className="sr-only">Open main menu</span>
@@ -100,13 +100,13 @@ const Navigation = () => {
       </div>
 
       {/* Mobile menu */}
-      <div className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'}`}>
-        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-gray-200">
+      <div className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'} w-full overflow-hidden`}>
+        <div className="px-3 pt-2 pb-3 space-y-1 bg-white border-t border-gray-200 w-full">
           {navItems.map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className="text-gray-700 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-300 hover:bg-blue-50"
+              className="text-gray-700 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-300 hover:bg-blue-50 w-full truncate"
               onClick={() => setIsMenuOpen(false)}
             >
               {item.name}
@@ -114,7 +114,7 @@ const Navigation = () => {
           ))}
           <Link
             href="#contact"
-            className="bg-blue-600 hover:bg-blue-700 text-white block px-3 py-2 rounded-md text-base font-medium transition-colors duration-300 mt-4"
+            className="bg-blue-600 hover:bg-blue-700 text-white block px-3 py-2 rounded-md text-base font-medium transition-colors duration-300 mt-4 w-full text-center truncate"
             onClick={() => setIsMenuOpen(false)}
           >
             Contact
