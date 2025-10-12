@@ -102,7 +102,7 @@ export default function CertificatesSection() {
         
         {/* Header Section */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-blue-600 mb-6">
             Certifications & Achievements
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">

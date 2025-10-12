@@ -9,7 +9,7 @@ export default function AboutSection() {
           <div className="space-y-8">
             {/* Introduction Header */}
             <div className="space-y-4">
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+              <h2 className="text-4xl md:text-5xl font-bold text-blue-600">
                 LET ME INTRODUCE MYSELF
               </h2>
               <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
@@ -79,7 +79,7 @@ export default function AboutSection() {
 
         {/* Social Links - Centered */}
         <div className="mt-16 pt-16 border-t border-gray-200 text-center">
-          <h3 className="text-3xl font-bold text-gray-900 mb-4">
+          <h3 className="text-3xl font-bold text-blue-600 mb-4">
             FIND ME ON
           </h3>
           <p className="text-lg text-gray-600 mb-8">

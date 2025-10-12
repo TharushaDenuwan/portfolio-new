@@ -54,7 +54,7 @@ export default function TechStackSection() {
         {/* Professional Skillset Section */}
         <div className="mb-20">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-blue-600 mb-6">
               Professional Skillset
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -86,7 +86,7 @@ export default function TechStackSection() {
         {/* Tools Section */}
         <div>
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-blue-600 mb-6">
               Tools I Use
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
