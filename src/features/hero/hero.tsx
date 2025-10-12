@@ -25,7 +25,7 @@ export default function HeroSection() {
   }, [skills.length]);
 
   return (
-    <section className="min-h-screen bg-blue-100 relative">
+    <section id="hero" className="min-h-screen bg-blue-100 relative">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-25 pb-20 relative">
         <div className="grid md:grid-cols-2 gap-8 items-center">
           {/* Left Section - Text Content */}
@@ -91,12 +91,33 @@ export default function HeroSection() {
 
           {/* Right Section - Image */}
           <div className="flex justify-center md:justify-end">
-            <div className="relative">
-              <img
-                src="/assets/text.jpg"
-                alt="Tharusha Denuwan"
-                className="rounded-2xl w-full max-w-sm object-cover shadow-lg"
-              />
+            <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md">
+              {/* Blue Background Shape (static) */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 bg-gradient-to-br from-blue-500 to-blue-700 shadow-lg md:shadow-2xl" 
+                     style={{
+                       borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%'
+                     }}>
+                </div>
+              </div>
+              
+              {/* Profile Image (fixed position) */}
+              <div className="relative z-10 flex items-center justify-center">
+                <div className="w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 overflow-hidden" 
+                     style={{
+                       borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%'
+                     }}>
+                  <img
+                    src="/assets/mynew.png"
+                    alt="Tharusha Denuwan"
+                    className="w-full h-full object-cover"
+                    style={{
+                      objectPosition: 'center top',
+                      transform: 'scale(1.1)'
+                    }}
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -112,6 +133,21 @@ export default function HeroSection() {
           animation: wave 2s ease-in-out infinite;
           transform-origin: 70% 70%;
           display: inline-block;
+        }
+        
+        @keyframes float {
+          0%, 100% { 
+            transform: translateY(0px) rotate(0deg);
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+          }
+          33% { 
+            transform: translateY(-8px) rotate(0.5deg);
+            border-radius: 50% 50% 40% 60% / 70% 40% 60% 30%;
+          }
+          66% { 
+            transform: translateY(4px) rotate(-0.5deg);
+            border-radius: 70% 30% 50% 50% / 50% 70% 30% 60%;
+          }
         }
       `}</style>
     </section>
