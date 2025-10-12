@@ -2,7 +2,7 @@
 
 export default function AboutSection() {
   return (
-    <section className="bg-white relative">
+    <section id="about" className="bg-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-25 pb-20 relative">
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Left Section - Text Content */}

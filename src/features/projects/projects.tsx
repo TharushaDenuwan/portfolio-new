@@ -160,12 +160,25 @@ export default function ProjectsSection() {
 
   // Reset visible projects when filter changes
   const handleFilterChange = (filter: string) => {
+    // Add a small delay to create smooth transition effect
     setActiveFilter(filter);
     setVisibleProjects(6);
+    
+    // Scroll to projects section when filter changes (optional smooth scroll)
+    const projectsElement = document.getElementById('projects');
+    if (projectsElement && filter !== 'All') {
+      const navHeight = 64;
+      const elementPosition = projectsElement.offsetTop - navHeight - 20; // Extra 20px offset
+      
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      });
+    }
   };
 
   return (
-    <section className="bg-white relative">
+    <section id="projects" className="bg-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-25 pb-20 relative">
         
         {/* Header Section */}
@@ -178,15 +191,15 @@ export default function ProjectsSection() {
           </p>
 
           {/* Filter Tabs */}
-          <div className="inline-flex flex-wrap justify-center gap-2 bg-gray-100 p-2 rounded-full">
+          <div className="inline-flex flex-wrap justify-center gap-3 bg-gray-100/50 p-3 rounded-2xl backdrop-blur-sm">
             {filters.map((filter) => (
               <button
                 key={filter}
                 onClick={() => handleFilterChange(filter)}
-                className={`px-6 py-3 rounded-full font-medium text-sm transition-all duration-300 ${
+                className={`filter-button px-6 py-3 rounded-full font-medium text-sm transition-all duration-300 ${
                   activeFilter === filter
-                    ? 'bg-blue-600 text-white shadow-lg'
-                    : 'text-gray-600 hover:text-blue-600 hover:bg-white/50'
+                    ? 'active bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg'
+                    : 'bg-white/80 text-gray-700 hover:text-blue-600 hover:bg-white hover:shadow-md border border-gray-200/50'
                 }`}
               >
                 {filter}
@@ -197,10 +210,14 @@ export default function ProjectsSection() {
 
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {displayedProjects.map((project) => (
+          {displayedProjects.map((project, index) => (
             <div
-              key={project.id}
-              className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-200 group hover:scale-105"
+              key={`${project.id}-${activeFilter}`} // Force re-render on filter change
+              className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-200 group hover:scale-[1.02] animate-fade-in"
+              style={{
+                animationDelay: `${index * 80}ms`, // Reduced stagger delay
+                animationFillMode: 'both'
+              }}
             >
               {/* Project Image */}
               <div className="relative h-48 bg-gradient-to-br from-blue-100 to-blue-200 overflow-hidden">
@@ -230,7 +247,7 @@ export default function ProjectsSection() {
               {/* Project Content */}
               <div className="p-6">
                 <div className="flex items-start justify-between mb-3">
-                  <h3 className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+                  <h3 className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-200">
                     {project.title}
                   </h3>
                   <span className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full whitespace-nowrap ml-2">
@@ -260,7 +277,7 @@ export default function ProjectsSection() {
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 bg-blue-600 hover:bg-blue-700 text-white text-center py-2 px-4 rounded-lg font-medium text-sm transition-all duration-300 hover:shadow-lg"
+                    className="flex-1 bg-blue-600 hover:bg-blue-700 text-white text-center py-2 px-4 rounded-lg font-medium text-sm transition-colors duration-200"
                   >
                     Live Demo
                   </a>
@@ -268,7 +285,7 @@ export default function ProjectsSection() {
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 bg-gray-800 hover:bg-gray-900 text-white text-center py-2 px-4 rounded-lg font-medium text-sm transition-all duration-300 hover:shadow-lg"
+                    className="flex-1 bg-gray-800 hover:bg-gray-900 text-white text-center py-2 px-4 rounded-lg font-medium text-sm transition-colors duration-200"
                   >
                     GitHub
                   </a>
