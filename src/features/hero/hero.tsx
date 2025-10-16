@@ -13,6 +13,20 @@ export default function HeroSection() {
   const [currentSkillIndex, setCurrentSkillIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
 
+  // Smooth scroll to contact section
+  const handleConnectClick = () => {
+    const contactElement = document.getElementById('contact');
+    if (contactElement) {
+      const navHeight = 64; // Height of the fixed navigation (h-16 = 64px)
+      const elementPosition = contactElement.offsetTop - navHeight;
+      
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   useEffect(() => {
     const interval = setInterval(() => {
       setIsAnimating(true);
@@ -72,7 +86,10 @@ export default function HeroSection() {
               </p>
             </div>
 
-            <button className="group flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full font-medium text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 mt-6">
+            <button 
+              onClick={handleConnectClick}
+              className="group flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full font-medium text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 mt-6"
+            >
               Let's Connect
               <svg
                 className="w-5 h-5 group-hover:translate-x-1 transition-transform"
