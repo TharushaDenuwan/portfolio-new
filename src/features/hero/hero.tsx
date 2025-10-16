@@ -6,7 +6,8 @@ export default function HeroSection() {
   const skills = [
     'Mobile App Developer',
     'DevOps Engineer',
-    'Full Stack Developer'
+    'Full Stack Developer',
+    'UI/UX Designer',
   ];
 
   const [currentSkillIndex, setCurrentSkillIndex] = useState(0);
