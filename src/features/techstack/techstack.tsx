@@ -91,7 +91,7 @@ export default function TechStackSection() {
             </p>
           </div>
 
-          {/* Sliding Container - Right Direction */}
+          {/* Skills Container */}
           <div className="relative">
             {/* Mobile Navigation Buttons */}
             {isMobile && (
@@ -117,50 +117,60 @@ export default function TechStackSection() {
               </>
             )}
             
-            <div className="overflow-hidden relative">
-              <div 
-                ref={skillsScrollRef}
-                className={`flex whitespace-nowrap ${isMobile ? 'overflow-x-auto scrollbar-hide' : 'animate-slide-right'}`}
-                style={isMobile ? { scrollbarWidth: 'none', msOverflowStyle: 'none' } : {}}
-              >
-                {/* First set */}
+            {/* Desktop Grid Layout */}
+            {!isMobile && (
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
                 {professionalSkills.map((skill, index) => (
                   <div
-                    key={`first-${index}`}
-                    className={`${skill.color} p-6 rounded-2xl text-center hover:scale-105 hover:bg-white/30 transition-all duration-300 shadow-lg hover:shadow-xl border-2 cursor-pointer group hover:border-white/50 flex-shrink-0 mx-3 min-w-[160px]`}
+                    key={index}
+                    className={`${skill.color} p-6 rounded-2xl text-center hover:scale-105 hover:bg-white/30 transition-all duration-300 shadow-lg hover:shadow-xl border-2 cursor-pointer group hover:border-white/50 relative overflow-hidden`}
                   >
-                    <div className="mb-4 group-hover:scale-110 transition-transform duration-300 flex justify-center">
+                    {/* Manual Hover Lightning Glow Effect */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-yellow-400/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out z-20"></div>
+                    
+                    <div className="mb-4 group-hover:scale-110 transition-transform duration-300 flex justify-center relative z-10">
                       <img 
                         src={skill.img.src} 
                         alt={skill.name} 
                         className="w-14 h-14 object-contain drop-shadow-sm"
                       />
                     </div>
-                    <div className="font-semibold text-sm leading-tight drop-shadow-sm whitespace-normal">
-                      {skill.name}
-                    </div>
-                  </div>
-                ))}
-                {/* Second set for seamless loop - only on desktop */}
-                {!isMobile && professionalSkills.map((skill, index) => (
-                  <div
-                    key={`second-${index}`}
-                    className={`${skill.color} p-6 rounded-2xl text-center hover:scale-105 hover:bg-white/30 transition-all duration-300 shadow-lg hover:shadow-xl border-2 cursor-pointer group hover:border-white/50 flex-shrink-0 mx-3 min-w-[160px]`}
-                  >
-                    <div className="mb-4 group-hover:scale-110 transition-transform duration-300 flex justify-center">
-                      <img 
-                        src={skill.img.src} 
-                        alt={skill.name} 
-                        className="w-14 h-14 object-contain drop-shadow-sm"
-                      />
-                    </div>
-                    <div className="font-semibold text-sm leading-tight drop-shadow-sm whitespace-normal">
+                    <div className="font-semibold text-sm leading-tight drop-shadow-sm relative z-10">
                       {skill.name}
                     </div>
                   </div>
                 ))}
               </div>
-            </div>
+            )}
+
+            {/* Mobile Sliding Layout */}
+            {isMobile && (
+              <div className="overflow-hidden relative">
+                <div 
+                  ref={skillsScrollRef}
+                  className="flex whitespace-nowrap overflow-x-auto scrollbar-hide"
+                  style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                >
+                  {professionalSkills.map((skill, index) => (
+                    <div
+                      key={index}
+                      className={`${skill.color} p-6 rounded-2xl text-center hover:scale-105 hover:bg-white/30 transition-all duration-300 shadow-lg hover:shadow-xl border-2 cursor-pointer group hover:border-white/50 flex-shrink-0 mx-3 min-w-[160px]`}
+                    >
+                      <div className="mb-4 group-hover:scale-110 transition-transform duration-300 flex justify-center">
+                        <img 
+                          src={skill.img.src} 
+                          alt={skill.name} 
+                          className="w-14 h-14 object-contain drop-shadow-sm"
+                        />
+                      </div>
+                      <div className="font-semibold text-sm leading-tight drop-shadow-sm whitespace-normal">
+                        {skill.name}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </div>
 
@@ -175,7 +185,7 @@ export default function TechStackSection() {
             </p>
           </div>
 
-          {/* Sliding Container - Left Direction */}
+          {/* Tools Container */}
           <div className="relative">
             {/* Mobile Navigation Buttons */}
             {isMobile && (
@@ -201,50 +211,60 @@ export default function TechStackSection() {
               </>
             )}
             
-            <div className="overflow-hidden relative">
-              <div 
-                ref={toolsScrollRef}
-                className={`flex whitespace-nowrap ${isMobile ? 'overflow-x-auto scrollbar-hide' : 'animate-slide-left'}`}
-                style={isMobile ? { scrollbarWidth: 'none', msOverflowStyle: 'none' } : {}}
-              >
-                {/* First set */}
+            {/* Desktop Grid Layout */}
+            {!isMobile && (
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
                 {tools.map((tool, index) => (
                   <div
-                    key={`first-${index}`}
-                    className={`${tool.color} p-6 rounded-2xl text-center hover:scale-105 hover:bg-white/30 transition-all duration-300 shadow-lg hover:shadow-xl border-2 cursor-pointer group hover:border-white/50 flex-shrink-0 mx-3 min-w-[180px]`}
+                    key={index}
+                    className={`${tool.color} p-6 rounded-2xl text-center hover:scale-105 hover:bg-white/30 transition-all duration-300 shadow-lg hover:shadow-xl border-2 cursor-pointer group hover:border-white/50 relative overflow-hidden`}
                   >
-                    <div className="mb-4 group-hover:scale-110 transition-transform duration-300 flex justify-center">
+                    {/* Manual Hover Lightning Glow Effect */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-yellow-400/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out z-20"></div>
+                    
+                    <div className="mb-4 group-hover:scale-110 transition-transform duration-300 flex justify-center relative z-10">
                       <img 
                         src={tool.img.src} 
                         alt={tool.name} 
                         className="w-14 h-14 object-contain drop-shadow-sm"
                       />
                     </div>
-                    <div className="font-semibold text-sm leading-tight drop-shadow-sm whitespace-normal">
-                      {tool.name}
-                    </div>
-                  </div>
-                ))}
-                {/* Second set for seamless loop - only on desktop */}
-                {!isMobile && tools.map((tool, index) => (
-                  <div
-                    key={`second-${index}`}
-                    className={`${tool.color} p-6 rounded-2xl text-center hover:scale-105 hover:bg-white/30 transition-all duration-300 shadow-lg hover:shadow-xl border-2 cursor-pointer group hover:border-white/50 flex-shrink-0 mx-3 min-w-[180px]`}
-                  >
-                    <div className="mb-4 group-hover:scale-110 transition-transform duration-300 flex justify-center">
-                      <img 
-                        src={tool.img.src} 
-                        alt={tool.name} 
-                        className="w-14 h-14 object-contain drop-shadow-sm"
-                      />
-                    </div>
-                    <div className="font-semibold text-sm leading-tight drop-shadow-sm whitespace-normal">
+                    <div className="font-semibold text-sm leading-tight drop-shadow-sm relative z-10">
                       {tool.name}
                     </div>
                   </div>
                 ))}
               </div>
-            </div>
+            )}
+
+            {/* Mobile Sliding Layout */}
+            {isMobile && (
+              <div className="overflow-hidden relative">
+                <div 
+                  ref={toolsScrollRef}
+                  className="flex whitespace-nowrap overflow-x-auto scrollbar-hide"
+                  style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                >
+                  {tools.map((tool, index) => (
+                    <div
+                      key={index}
+                      className={`${tool.color} p-6 rounded-2xl text-center hover:scale-105 hover:bg-white/30 transition-all duration-300 shadow-lg hover:shadow-xl border-2 cursor-pointer group hover:border-white/50 flex-shrink-0 mx-3 min-w-[180px]`}
+                    >
+                      <div className="mb-4 group-hover:scale-110 transition-transform duration-300 flex justify-center">
+                        <img 
+                          src={tool.img.src} 
+                          alt={tool.name} 
+                          className="w-14 h-14 object-contain drop-shadow-sm"
+                        />
+                      </div>
+                      <div className="font-semibold text-sm leading-tight drop-shadow-sm whitespace-normal">
+                        {tool.name}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </div>
 

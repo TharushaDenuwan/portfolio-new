@@ -79,7 +79,7 @@ const Navigation = () => {
             <Link
               href="/"
               onClick={handleScrollToTop}
-              className="inline-flex items-baseline space-x-1 text-gray-900 hover:text-blue-600 transition-colors duration-300 cursor-pointer"
+              className="inline-flex items-baseline space-x-1 text-gray-900 hover:text-blue-300 transition-colors duration-300 cursor-pointer"
             >
             <span className="text-3xl sm:text-4xl font-extrabold leading-none text-blue-600">Port</span>
               <span className="text-base sm:text-lg font-medium">folio</span>
