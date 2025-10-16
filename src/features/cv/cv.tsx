@@ -143,12 +143,12 @@ export default function CVDownload() {
       </div>
 
       {/* Additional Info */}
-      <div className="mt-4 pt-4 border-t border-gray-200">
+      {/* <div className="mt-4 pt-4 border-t border-gray-200">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-xs text-gray-500">
           <span className="text-center sm:text-left">PDF Format • Updated Recently • View online or download</span>
           <span className="text-center sm:text-right">~250KB</span>
         </div>
-      </div>
+      </div> */}
         </div>
       </div>
     </section>

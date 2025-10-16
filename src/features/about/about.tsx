@@ -12,9 +12,9 @@ export default function AboutSection() {
               <h2 className="text-4xl md:text-5xl font-bold text-blue-600">
                 LET ME INTRODUCE MYSELF
               </h2>
-              <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
-                I fell in love with programming and I have at least learnt something, I think… 🤷‍♂️
-              </p>
+                <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
+                I'm passionate about creating innovative solutions through code and turning ideas into reality. 💡
+                </p>
             </div>
 
             {/* Experience Section */}
@@ -23,7 +23,7 @@ export default function AboutSection() {
                 Technical Experience
               </h3>
               <p className="text-base md:text-lg text-gray-600 leading-relaxed">
-                I have experience in working with languages like <span className="font-semibold text-blue-600">C++</span>, <span className="font-semibold text-blue-600">HTML</span>, <span className="font-semibold text-blue-600">CSS</span>, <span className="font-semibold text-blue-600">React</span>, <span className="font-semibold text-blue-600">Spring Boot</span> and <span className="font-semibold text-blue-600">Java</span>.
+                I have experience in working with languages like <span className="font-semibold text-blue-600">Next.js</span>, <span className="font-semibold text-blue-600">HTML</span>, <span className="font-semibold text-blue-600">Tailwind CSS</span>, <span className="font-semibold text-blue-600">React</span>, <span className="font-semibold text-blue-600">Node.js</span> and <span className="font-semibold text-blue-600">Java</span>.
               </p>
             </div>
 
@@ -43,7 +43,7 @@ export default function AboutSection() {
                 Current Focus
               </h3>
               <p className="text-base md:text-lg text-gray-600 leading-relaxed">
-                I consistently leverage my passion for product development by utilizing <span className="font-semibold text-blue-600">Spring Boot</span>, <span className="font-semibold text-blue-600">Node.js</span> along with Modern Javascript Library and Frameworks such as <span className="font-semibold text-blue-600">React.js</span> and <span className="font-semibold text-blue-600">Next.js</span> whenever possible.
+                I consistently leverage my passion for product development by utilizing <span className="font-semibold text-blue-600">Java</span>, <span className="font-semibold text-blue-600">Node.js</span> along with Modern Javascript Library and Frameworks such as <span className="font-semibold text-blue-600">React.js</span> and <span className="font-semibold text-blue-600">Next.js</span> whenever possible.
               </p>
             </div>
 
