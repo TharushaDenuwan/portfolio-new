@@ -46,7 +46,7 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200 shadow-sm w-full">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/10 backdrop-blur-xl border-b border-white/20 shadow-2xl w-full">
       <div className="w-full max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
         <div className="flex items-center justify-between h-16 w-full">
           {/* Left side - Portfolio Logo */}
@@ -69,7 +69,7 @@ const Navigation = () => {
                   key={item.name}
                   href={item.href}
                   onClick={(e) => handleSmoothScroll(e, item.targetId)}
-                  className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 hover:bg-blue-50"
+                  className="text-gray-700 hover:text-white px-4 py-2 rounded-md text-sm font-medium transition-colors duration-300 hover:bg-blue-700 "
                 >
                   {item.name}
                 </Link>
@@ -136,7 +136,7 @@ const Navigation = () => {
 
       {/* Mobile menu */}
       <div className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'} w-full overflow-hidden`}>
-        <div className="px-3 pt-2 pb-3 space-y-1 bg-white border-t border-gray-200 w-full">
+        <div className="px-3 pt-2 pb-3 space-y-1 bg-white/10 backdrop-blur-xl border-t border-white/20 w-full">
           {navItems.map((item) => (
             <Link
               key={item.name}
