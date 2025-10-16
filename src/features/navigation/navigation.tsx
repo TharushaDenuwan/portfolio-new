@@ -1,10 +1,11 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('hero');
 
   // Smooth scroll function
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
@@ -38,6 +39,30 @@ const Navigation = () => {
     setIsMenuOpen(false);
   };
 
+  // Track active section on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const navHeight = 64;
+      const sections = ['hero', 'about', 'skills', 'projects', 'certifications', 'contact'];
+      
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = document.getElementById(sections[i]);
+        if (section) {
+          const sectionTop = section.offsetTop - navHeight - 100;
+          if (window.scrollY >= sectionTop) {
+            setActiveSection(sections[i]);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check on initial load
+    
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const navItems = [
     { name: 'About', href: '#about', targetId: 'about' },
     { name: 'Skills', href: '#skills', targetId: 'skills' },
@@ -46,7 +71,7 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200 shadow-sm w-full">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/10 backdrop-blur-xl border-b border-white/20 shadow-2xl w-full">
       <div className="w-full max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
         <div className="flex items-center justify-between h-16 w-full">
           {/* Left side - Portfolio Logo */}
@@ -69,7 +94,11 @@ const Navigation = () => {
                   key={item.name}
                   href={item.href}
                   onClick={(e) => handleSmoothScroll(e, item.targetId)}
-                  className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 hover:bg-blue-50"
+                  className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-300 ${
+                    activeSection === item.targetId
+                      ? 'text-white bg-blue-600/80 backdrop-blur-sm shadow-lg'
+                      : 'text-gray-700 hover:text-white hover:bg-blue-700'
+                  }`}
                 >
                   {item.name}
                 </Link>
@@ -82,7 +111,11 @@ const Navigation = () => {
             <Link
               href="#contact"
               onClick={(e) => handleSmoothScroll(e, 'contact')}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-4 lg:px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:shadow-lg hover:scale-105"
+              className={`px-4 lg:px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:shadow-lg hover:scale-105 ${
+                activeSection === 'contact'
+                  ? 'bg-blue-800 text-white shadow-xl scale-105'
+                  : 'bg-blue-600 hover:bg-blue-700 text-white'
+              }`}
             >
               Contact
             </Link>
@@ -136,13 +169,17 @@ const Navigation = () => {
 
       {/* Mobile menu */}
       <div className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'} w-full overflow-hidden`}>
-        <div className="px-3 pt-2 pb-3 space-y-1 bg-white border-t border-gray-200 w-full">
+        <div className="px-3 pt-2 pb-3 space-y-1 bg-white/10 backdrop-blur-xl border-t border-white/20 w-full">
           {navItems.map((item) => (
             <Link
               key={item.name}
               href={item.href}
               onClick={(e) => handleSmoothScroll(e, item.targetId)}
-              className="text-gray-700 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-300 hover:bg-blue-50 w-full truncate"
+              className={`block px-3 py-2 rounded-md text-base font-medium transition-all duration-300 w-full truncate ${
+                activeSection === item.targetId
+                  ? 'text-white bg-blue-600/80 backdrop-blur-sm shadow-lg'
+                  : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
+              }`}
             >
               {item.name}
             </Link>
@@ -150,7 +187,11 @@ const Navigation = () => {
           <Link
             href="#contact"
             onClick={(e) => handleSmoothScroll(e, 'contact')}
-            className="bg-blue-600 hover:bg-blue-700 text-white block px-3 py-2 rounded-md text-base font-medium transition-colors duration-300 mt-4 w-full text-center truncate"
+            className={`block px-3 py-2 rounded-md text-base font-medium transition-all duration-300 mt-4 w-full text-center truncate ${
+              activeSection === 'contact'
+                ? 'bg-blue-800 text-white shadow-xl'
+                : 'bg-blue-600 hover:bg-blue-700 text-white'
+            }`}
           >
             Contact
           </Link>

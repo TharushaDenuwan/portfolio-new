@@ -52,7 +52,7 @@ export default function ProjectsSection() {
       image: '/projects/bloonsoo.png',
       liveUrl: 'https://example.com',
       githubUrl: 'https://github.com/example',
-      status: 'Completed'
+      status: 'In Progress'
     },
     {
       id: 5,
@@ -118,7 +118,7 @@ export default function ProjectsSection() {
       image: '/projects/movieapp.png',
       liveUrl: 'https://example.com',
       githubUrl: 'https://github.com/example',
-      status: 'In Progress'
+      status: 'Completed'
     },
     {
       id: 11,
