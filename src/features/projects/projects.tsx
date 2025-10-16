@@ -17,8 +17,8 @@ export default function ProjectsSection() {
       category: 'Group Projects',
       technologies: ['Next.js', 'Next.js API', 'PostgreSQL', 'Tailwind CSS', 'Better Auth'],
       image: '/projects/myunivrs.png',
-      liveUrl: 'https://example.com',
-      githubUrl: 'https://github.com/example',
+      liveUrl: '',
+      githubUrl: '',
       status: 'Completed'
     },
     {
@@ -83,7 +83,7 @@ export default function ProjectsSection() {
       category: 'Individual Projects',
       technologies: ['Java'],
       image: '/projects/studentms.png',
-      liveUrl: 'https://example.com',
+      liveUrl: '',
       githubUrl: 'https://github.com/example',
       status: 'Completed'
     },
@@ -127,8 +127,8 @@ export default function ProjectsSection() {
       category: 'Individual Projects',
       technologies: ['Java'],
       image: '/projects/flowmax.png',
-      liveUrl: 'https://example.com',
-      githubUrl: 'https://github.com/example',
+      liveUrl: '',
+      githubUrl: '',
       status: 'Completed'
     },
     {
@@ -273,22 +273,41 @@ export default function ProjectsSection() {
 
                 {/* Action Buttons */}
                 <div className="flex gap-3">
-                  <a
-                    href={project.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 bg-blue-600 hover:bg-blue-700 text-white text-center py-2 px-4 rounded-lg font-medium text-sm transition-colors duration-200"
-                  >
-                    Live Demo
-                  </a>
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 bg-gray-800 hover:bg-gray-900 text-white text-center py-2 px-4 rounded-lg font-medium text-sm transition-colors duration-200"
-                  >
-                    GitHub
-                  </a>
+                  {project.liveUrl ? (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 bg-blue-600 hover:bg-blue-700 text-white text-center py-2 px-4 rounded-lg font-medium text-sm transition-colors duration-200"
+                    >
+                      Live Demo
+                    </a>
+                  ) : (
+                    <button
+                      disabled
+                      className="flex-1 bg-gray-400 text-white text-center py-2 px-4 rounded-lg font-medium text-sm cursor-not-allowed"
+                    >
+                      No Demo
+                    </button>
+                  )}
+                  
+                  {project.githubUrl ? (
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 bg-gray-800 hover:bg-gray-900 text-white text-center py-2 px-4 rounded-lg font-medium text-sm transition-colors duration-200"
+                    >
+                      GitHub
+                    </a>
+                  ) : (
+                    <button
+                      onClick={() => window.open('mailto:tharushadenuwan35@gmail.com?subject=Request for Project Source Code&body=Hi, I would like to request access to the source code for the project: ' + encodeURIComponent(project.title), '_blank')}
+                      className="flex-1 bg-orange-600 hover:bg-orange-700 text-white text-center py-2 px-4 rounded-lg font-medium text-sm transition-colors duration-200"
+                    >
+                      Request
+                    </button>
+                  )}
                 </div>
               </div>
             </div>
