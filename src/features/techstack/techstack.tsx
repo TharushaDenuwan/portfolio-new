@@ -62,24 +62,46 @@ export default function TechStackSection() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
-            {professionalSkills.map((skill, index) => (
-              <div
-                key={index}
-                className={`${skill.color} p-6 rounded-2xl text-center hover:scale-105 hover:bg-white/30 transition-all duration-300 shadow-lg hover:shadow-xl border-2 cursor-pointer group hover:border-white/50`}
-              >
-                <div className="mb-4 group-hover:scale-110 transition-transform duration-300 flex justify-center">
-                  <img 
-                    src={skill.img.src} 
-                    alt={skill.name} 
-                    className="w-14 h-14 object-contain drop-shadow-sm"
-                  />
+          {/* Sliding Container - Right Direction */}
+          <div className="overflow-hidden relative">
+            <div className="flex animate-slide-right whitespace-nowrap">
+              {/* First set */}
+              {professionalSkills.map((skill, index) => (
+                <div
+                  key={`first-${index}`}
+                  className={`${skill.color} p-6 rounded-2xl text-center hover:scale-105 hover:bg-white/30 transition-all duration-300 shadow-lg hover:shadow-xl border-2 cursor-pointer group hover:border-white/50 flex-shrink-0 mx-3 min-w-[160px]`}
+                >
+                  <div className="mb-4 group-hover:scale-110 transition-transform duration-300 flex justify-center">
+                    <img 
+                      src={skill.img.src} 
+                      alt={skill.name} 
+                      className="w-14 h-14 object-contain drop-shadow-sm"
+                    />
+                  </div>
+                  <div className="font-semibold text-sm leading-tight drop-shadow-sm whitespace-normal">
+                    {skill.name}
+                  </div>
                 </div>
-                <div className="font-semibold text-sm leading-tight drop-shadow-sm">
-                  {skill.name}
+              ))}
+              {/* Second set for seamless loop */}
+              {professionalSkills.map((skill, index) => (
+                <div
+                  key={`second-${index}`}
+                  className={`${skill.color} p-6 rounded-2xl text-center hover:scale-105 hover:bg-white/30 transition-all duration-300 shadow-lg hover:shadow-xl border-2 cursor-pointer group hover:border-white/50 flex-shrink-0 mx-3 min-w-[160px]`}
+                >
+                  <div className="mb-4 group-hover:scale-110 transition-transform duration-300 flex justify-center">
+                    <img 
+                      src={skill.img.src} 
+                      alt={skill.name} 
+                      className="w-14 h-14 object-contain drop-shadow-sm"
+                    />
+                  </div>
+                  <div className="font-semibold text-sm leading-tight drop-shadow-sm whitespace-normal">
+                    {skill.name}
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
 
@@ -94,24 +116,46 @@ export default function TechStackSection() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {tools.map((tool, index) => (
-              <div
-                key={index}
-                className={`${tool.color} p-6 rounded-2xl text-center hover:scale-105 hover:bg-white/30 transition-all duration-300 shadow-lg hover:shadow-xl border-2 cursor-pointer group hover:border-white/50`}
-              >
-                <div className="mb-4 group-hover:scale-110 transition-transform duration-300 flex justify-center">
-                  <img 
-                    src={tool.img.src} 
-                    alt={tool.name} 
-                    className="w-14 h-14 object-contain drop-shadow-sm"
-                  />
+          {/* Sliding Container - Left Direction */}
+          <div className="overflow-hidden relative">
+            <div className="flex animate-slide-left whitespace-nowrap">
+              {/* First set */}
+              {tools.map((tool, index) => (
+                <div
+                  key={`first-${index}`}
+                  className={`${tool.color} p-6 rounded-2xl text-center hover:scale-105 hover:bg-white/30 transition-all duration-300 shadow-lg hover:shadow-xl border-2 cursor-pointer group hover:border-white/50 flex-shrink-0 mx-3 min-w-[180px]`}
+                >
+                  <div className="mb-4 group-hover:scale-110 transition-transform duration-300 flex justify-center">
+                    <img 
+                      src={tool.img.src} 
+                      alt={tool.name} 
+                      className="w-14 h-14 object-contain drop-shadow-sm"
+                    />
+                  </div>
+                  <div className="font-semibold text-sm leading-tight drop-shadow-sm whitespace-normal">
+                    {tool.name}
+                  </div>
                 </div>
-                <div className="font-semibold text-sm leading-tight drop-shadow-sm">
-                  {tool.name}
+              ))}
+              {/* Second set for seamless loop */}
+              {tools.map((tool, index) => (
+                <div
+                  key={`second-${index}`}
+                  className={`${tool.color} p-6 rounded-2xl text-center hover:scale-105 hover:bg-white/30 transition-all duration-300 shadow-lg hover:shadow-xl border-2 cursor-pointer group hover:border-white/50 flex-shrink-0 mx-3 min-w-[180px]`}
+                >
+                  <div className="mb-4 group-hover:scale-110 transition-transform duration-300 flex justify-center">
+                    <img 
+                      src={tool.img.src} 
+                      alt={tool.name} 
+                      className="w-14 h-14 object-contain drop-shadow-sm"
+                    />
+                  </div>
+                  <div className="font-semibold text-sm leading-tight drop-shadow-sm whitespace-normal">
+                    {tool.name}
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
 

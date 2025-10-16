@@ -94,6 +94,39 @@ html {
   -webkit-backface-visibility: hidden;
 }
 
+/* Tech Stack Slider Animations */
+@keyframes slide-right {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slide-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-slide-right {
+  animation: slide-right 30s linear infinite;
+}
+
+.animate-slide-left {
+  animation: slide-left 30s linear infinite;
+}
+
+/* Pause animation on hover */
+.animate-slide-right:hover,
+.animate-slide-left:hover {
+  animation-play-state: paused;
+}
+
 /* Mobile-specific fixes */
 @media (max-width: 768px) {
   .container,
@@ -112,5 +145,11 @@ html {
   /* Reduce animations on mobile for better performance */
   .animate-fade-in {
     animation-duration: 0.3s;
+  }
+  
+  /* Adjust slider speed on mobile */
+  .animate-slide-right,
+  .animate-slide-left {
+    animation-duration: 20s;
   }
 }
