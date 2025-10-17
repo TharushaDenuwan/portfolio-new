@@ -7,6 +7,7 @@ import ProjectsSection from '@/features/projects/projects';
 import CertificatesSection from '@/features/certificates/certificates';
 import ConnectSection from '@/features/connect/connect';
 import Footer from '@/features/footer/footer';
+import ExperiencePage from '@/features/experience/page';
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <HeroSection/>
       <CVDownload/>
       <AboutSection/>
+      <ExperiencePage/>
       <TechStackSection/>
       < ProjectsSection/>
       <CertificatesSection/>

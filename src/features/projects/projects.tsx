@@ -17,7 +17,7 @@ export default function ProjectsSection() {
       category: 'Group Projects',
       technologies: ['Next.js', 'Next.js API', 'PostgreSQL', 'Tailwind CSS', 'Better Auth'],
       image: '/projects/myunivrs.png',
-      liveUrl: '',
+      liveUrl: 'https://myunivrs.com/webApp/page',
       githubUrl: '',
       status: 'Completed'
     },
@@ -28,8 +28,8 @@ export default function ProjectsSection() {
       category: 'Group Projects',
       technologies: ['Next.js', 'Next.js API', 'PostgreSQL', 'Tailwind CSS', 'Better Auth'],
       image: '/projects/bloonsoo.png',
-      liveUrl: 'https://example.com',
-      githubUrl: 'https://github.com/example',
+      liveUrl: '',
+      githubUrl: '',
       status: 'Completed'
     },
     {
@@ -39,19 +39,19 @@ export default function ProjectsSection() {
       category: 'Group Projects',
       technologies: ['Next.js', 'Next.js API', 'PostgreSQL', 'Tailwind CSS', 'Better Auth'],
       image: '/projects/kidlink.png',
-      liveUrl: 'https://example.com',
-      githubUrl: 'https://github.com/example',
+      liveUrl: 'https://kidlink.donext.org/',
+      githubUrl: '',
       status: 'Completed'
     },
     {
       id: 4,
-      title: 'Hotel Booking System',
-      description: 'Bloonsoo is an online hotel booking platform. It allows users to search, filter, and book hotels, view room details, and manage reservations. The platform is built using Next.js for the front end, Next.js API for backend routes, and PostgreSQL for data management, providing a fast, secure, and user-friendly experience.',
+      title: 'vehicle classified website',
+      description: 'connect vehicle buyers and sellers through a reliable online marketplace where every listing is easy to post, easy to find, and easy to trust. Aim to become the most user-friendly classified website in Sri Lanka.',
       category: 'Group Projects',
-      technologies: ['Next.js', 'Next.js API', 'PostgreSQL', 'Tailwind CSS', 'Better Auth'],
-      image: '/projects/bloonsoo.png',
-      liveUrl: 'https://example.com',
-      githubUrl: 'https://github.com/example',
+      technologies: ['Next.js', 'Prisma', 'Mongodb', 'Tailwind CSS', 'Better Auth'],
+      image: '/projects/rathagala.png',
+      liveUrl: '',
+      githubUrl: '',
       status: 'In Progress'
     },
     {
@@ -61,8 +61,8 @@ export default function ProjectsSection() {
       category: 'Group Projects',
       technologies: ['Next.js', 'Next.js API', 'PostgreSQL', 'Tailwind CSS', 'Better Auth'],
       image: '/projects/ejobs.png',
-      liveUrl: 'https://example.com',
-      githubUrl: 'https://github.com/example',
+      liveUrl: 'https://ejobs.donext.org/',
+      githubUrl: '',
       status: 'Completed'
     },
     {
@@ -72,8 +72,8 @@ export default function ProjectsSection() {
       category: 'Group Projects',
       technologies: ['React', 'Node.js', 'Mongodb', 'Github'],
       image: '/projects/extravaganza.png',
-      liveUrl: 'https://example.com',
-      githubUrl: 'https://github.com/example',
+      liveUrl: '',
+      githubUrl: 'https://github.com/TharushaDenuwan/EventExtravaganza-Frontend.git',
       status: 'Completed'
     },
     {
@@ -84,7 +84,7 @@ export default function ProjectsSection() {
       technologies: ['Java'],
       image: '/projects/studentms.png',
       liveUrl: '',
-      githubUrl: 'https://github.com/example',
+      githubUrl: '',
       status: 'Completed'
     },
     {
@@ -94,8 +94,8 @@ export default function ProjectsSection() {
       category: 'Group Projects',
       technologies: ['Html', 'CSS', 'JavaScript'],
       image: '/projects/energy.png',
-      liveUrl: 'https://example.com',
-      githubUrl: 'https://github.com/example',
+      liveUrl: '',
+      githubUrl: '',
       status: 'Completed'
     },
     {
@@ -105,8 +105,8 @@ export default function ProjectsSection() {
       category: 'Individual Projects',
       technologies: ['Next.js', 'Tailwind CSS', 'Framer Motion'],
       image: '/projects/portfolio.png',
-      liveUrl: 'https://example.com',
-      githubUrl: 'https://github.com/example',
+      liveUrl: 'https://tharusha-denuwan.vercel.app/',
+      githubUrl: '',
       status: 'Completed'
     },
     {
@@ -116,8 +116,8 @@ export default function ProjectsSection() {
       category: 'Individual Projects',
       technologies: ['React', 'Axios', 'Node.js'],
       image: '/projects/movieapp.png',
-      liveUrl: 'https://example.com',
-      githubUrl: 'https://github.com/example',
+      liveUrl: 'https://movie-explorer-app-ashy.vercel.app/',
+      githubUrl: 'https://github.com/TharushaDenuwan/Movie-Explorer-App.git',
       status: 'Completed'
     },
     {
@@ -128,7 +128,7 @@ export default function ProjectsSection() {
       technologies: ['Java'],
       image: '/projects/flowmax.png',
       liveUrl: '',
-      githubUrl: '',
+      githubUrl: 'https://github.com/TharushaDenuwan/Flow-Max.git',
       status: 'Completed'
     },
     {
@@ -138,8 +138,8 @@ export default function ProjectsSection() {
       category: 'Individual Projects',
       technologies: ['Java', 'Node.js', 'React','Axios'],
       image: '/projects/ticket.png',
-      liveUrl: 'https://example.com',
-      githubUrl: 'https://github.com/example',
+      liveUrl: '',
+      githubUrl: 'https://github.com/TharushaDenuwan/Ticket-Management-System.git',
       status: 'Completed'
     },
   ];

@@ -14,7 +14,7 @@ export default function FloatingChat() {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: 1,
-      text: "Hi! I'm Tharusha's AI assistant. How can I help you today?",
+      text: "Hi! I'm AI assistant. How can I help you today?",
       sender: 'bot',
       timestamp: new Date()
     }
@@ -123,7 +123,7 @@ export default function FloatingChat() {
               <span className="text-sm font-bold">T</span>
             </div>
             <div>
-              <h3 className="font-semibold text-sm">Tharusha's Assistant</h3>
+              <h3 className="font-semibold text-sm">Assistant</h3>
               <p className="text-blue-200 text-xs">Online</p>
             </div>
           </div>
