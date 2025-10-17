@@ -43,7 +43,7 @@ const Navigation = () => {
   useEffect(() => {
     const handleScroll = () => {
       const navHeight = 64;
-      const sections = ['hero', 'about', 'skills', 'projects', 'certifications', 'contact'];
+      const sections = ['hero', 'about', 'experience', 'skills', 'projects', 'certifications', 'contact'];
       
       for (let i = sections.length - 1; i >= 0; i--) {
         const section = document.getElementById(sections[i]);
@@ -65,6 +65,7 @@ const Navigation = () => {
 
   const navItems = [
     { name: 'About', href: '#about', targetId: 'about' },
+    { name: 'Experience', href: '#experience', targetId: 'experience' },
     { name: 'Skills', href: '#skills', targetId: 'skills' },
     { name: 'Projects', href: '#projects', targetId: 'projects' },
     { name: 'Certifications', href: '#certifications', targetId: 'certifications' },
