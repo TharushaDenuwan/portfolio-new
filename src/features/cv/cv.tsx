@@ -10,7 +10,7 @@ export default function CVDownload() {
     
     // Create a link element to trigger download
     const link = document.createElement('a');
-    link.href = '/cv/Tharusha Denuwan CV (1).pdf';
+    link.href = '/cv/Tharusha Denuwan CV (3).pdf';
     link.download = 'Tharusha_Denuwan_CV.pdf';
     document.body.appendChild(link);
     link.click();
@@ -60,7 +60,7 @@ export default function CVDownload() {
         <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 w-full sm:w-auto">
           {/* View CV Button */}
           <a
-            href="/cv/Tharusha Denuwan CV (1).pdf"
+            href="/cv/Tharusha Denuwan CV (3).pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full font-medium text-sm transition-all duration-300 bg-gray-600 hover:bg-gray-700 text-white hover:shadow-lg hover:scale-105 w-full sm:w-auto"
@@ -163,7 +163,7 @@ export function CVDownloadButton() {
     setIsDownloading(true);
     
     const link = document.createElement('a');
-    link.href = '/cv/Tharusha Denuwan CV (1).pdf';
+    link.href = '/cv/Tharusha Denuwan CV (3).pdf';
     link.download = 'Tharusha_Denuwan_CV.pdf';
     document.body.appendChild(link);
     link.click();
