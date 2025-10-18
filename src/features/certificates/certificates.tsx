@@ -1,10 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function CertificatesSection() {
   const [visibleCertificates, setVisibleCertificates] = useState(6);
   const [selectedCertificate, setSelectedCertificate] = useState<any>(null);
+  const [modalOpen, setModalOpen] = useState(false);
 
   // Sample certificates data - replace with your actual certificates
   const certificates = [
@@ -100,12 +101,34 @@ export default function CertificatesSection() {
   // Handle certificate image click
   const openModal = (certificate: any) => {
     setSelectedCertificate(certificate);
+    // open animation will be triggered by modalOpen state below
+    setTimeout(() => setModalOpen(true), 20);
   };
 
   // Handle modal close
   const closeModal = () => {
-    setSelectedCertificate(null);
+    // play close animation first, then clear selectedCertificate
+    setModalOpen(false);
+    setTimeout(() => setSelectedCertificate(null), 300);
   };
+
+  // Lock background scroll when modal is open and handle Escape to close
+  useEffect(() => {
+    if (modalOpen) {
+      const originalStyle = window.getComputedStyle(document.body).overflow;
+      document.body.style.overflow = 'hidden';
+
+      const onKey = (e: KeyboardEvent) => {
+        if (e.key === 'Escape') closeModal();
+      };
+      window.addEventListener('keydown', onKey);
+
+      return () => {
+        document.body.style.overflow = originalStyle;
+        window.removeEventListener('keydown', onKey);
+      };
+    }
+  }, [modalOpen]);
 
   return (
     <section id="certifications" className="bg-gray-50 relative">
@@ -282,8 +305,17 @@ export default function CertificatesSection() {
 
         {/* Modal for Certificate Image */}
         {selectedCertificate && (
-          <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-            <div className="relative max-w-4xl w-full max-h-[90vh] bg-white rounded-2xl overflow-hidden shadow-2xl">
+          <div
+            className={`fixed inset-0 z-50 flex items-center justify-center p-4 transition-opacity duration-300 ${modalOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+            aria-hidden={!modalOpen}
+          >
+            {/* backdrop */}
+            <div
+              onClick={closeModal}
+              className={`absolute inset-0 bg-black/80 backdrop-blur-sm transition-opacity duration-300 ${modalOpen ? 'opacity-100' : 'opacity-0'}`}
+            />
+
+            <div className={`relative z-10 max-w-4xl w-full max-h-[90vh] bg-white rounded-2xl overflow-auto shadow-2xl transform transition-all duration-300 ${modalOpen ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 -translate-y-6'}`} style={{ WebkitOverflowScrolling: 'touch' }}>
               {/* Close Button */}
               <button
                 onClick={closeModal}
@@ -293,21 +325,21 @@ export default function CertificatesSection() {
               </button>
 
               {/* Certificate Image */}
-              <div className="relative">
+              <div className="relative w-full">
                 {selectedCertificate.image ? (
                   <img
                     src={selectedCertificate.image}
                     alt={selectedCertificate.title}
-                    className="w-full h-auto max-h-[80vh] object-contain"
+                    className="w-full h-auto max-h-[60vh] object-contain"
                   />
                 ) : (
-                  <div className="flex items-center justify-center h-96 bg-gradient-to-br from-blue-100 to-blue-200">
+                  <div className="flex items-center justify-center h-56 bg-gradient-to-br from-blue-100 to-blue-200">
                     <div className="text-8xl text-blue-600/30">🏆</div>
                   </div>
                 )}
               </div>
 
-              {/* Certificate Info */}
+              {/* Certificate Info (scrollable) */}
               <div className="p-6 bg-white">
                 <div className="flex items-start justify-between mb-4">
                   <div>
