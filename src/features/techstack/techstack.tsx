@@ -21,6 +21,7 @@ import postgresql from '../../../public/techstack/postgresql.png'
 import github from '../../../public/techstack/github.png'
 import docker from '../../../public/techstack/docker.png'
 import intellij from '../../../public/techstack/intellij.png'
+import scalar from '../../../public/techstack/scalar.png'
 
 export default function TechStackSection() {
   const [isMobile, setIsMobile] = useState(false);
@@ -73,7 +74,8 @@ export default function TechStackSection() {
     { name: 'POSTGRESQL', img: postgresql, color: 'bg-white/20 backdrop-blur-md text-gray-800 border-white/30' },
     { name: 'GITHUB', img: github, color: 'bg-white/20 backdrop-blur-md text-gray-800 border-white/30' },
     { name: 'DOCKER', img: docker, color: 'bg-white/20 backdrop-blur-md text-gray-800 border-white/30' },
-    { name: 'INTELLIJ', img: intellij, color: 'bg-white/20 backdrop-blur-md text-gray-800 border-white/30' }
+    { name: 'INTELLIJ', img: intellij, color: 'bg-white/20 backdrop-blur-md text-gray-800 border-white/30' },
+    { name: 'SCALAR', img: scalar, color: 'bg-white/20 backdrop-blur-md text-gray-800 border-white/30' },
   ];
 
   return (
