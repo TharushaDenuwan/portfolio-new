@@ -67,11 +67,22 @@ export default function CertificatesSection() {
       id: 6,
       title: 'Linux Unhatched',
       issuer: 'CISCO',
-      date: '2023',
+      date: '2025',
       description: 'Certification focusing on Linux fundamentals, command-line usage, and basic system administration.',
       image: '/certificates/linuxunhatched.jpg',
       credentialUrl: 'https://www.credly.com/badges/2f1a9e27-cef4-4caf-bf37-ce46b2afd495/linked_in_profile',
       skills: ['Linux', 'Command Line', 'System Administration'],
+      status: 'Verified'
+    },
+    {
+      id: 7,
+      title: 'Next.js',
+      issuer: 'LinkedIn Learning',
+      date: '2025',
+      description: 'Certification focusing on Next.js fundamentals, including server-side rendering, static site generation, and API routes.',
+      image: '/certificates/nextjs.jpg',
+      credentialUrl: 'https://www.linkedin.com/learning/certificates/abc03b11189ede1e21c657936ccdfadfc1abaefb2e9c8b0dd85d58d478b7aa45?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BSXrgzxGPQvG6tV6S6H%2Bx2g%3D%3D',
+      skills: ['Web Development', 'Front-End Development', 'Next.js'],
       status: 'Verified'
     },
     
