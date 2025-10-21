@@ -25,16 +25,63 @@ export default function ConnectSection() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission (replace with actual form handler)
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', subject: '', message: '' });
-      
-      // Clear success message after 3 seconds
-      setTimeout(() => setSubmitStatus(''), 3000);
-    }, 2000);
+    // Try sending via FormSubmit.co AJAX endpoint so the message is forwarded to your email.
+    // Note: the recipient (tharushadenuwan35@gmail.com) may need to confirm the form submission link
+    // the first time (FormSubmit sends a verification email to the recipient).
+    const endpoint = 'https://formsubmit.co/ajax/tharushadenuwan35@gmail.com';
+
+    const payload = {
+      name: formData.name,
+      email: formData.email,
+      subject: formData.subject || 'Contact from portfolio',
+      message: formData.message,
+      _subject: formData.subject || 'Contact from portfolio',
+      _honey: '', // honeypot field for spam protection
+      _captcha: 'false'
+    };
+
+    try {
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+
+      if (res.ok) {
+        setIsSubmitting(false);
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+        setTimeout(() => setSubmitStatus(''), 3000);
+      } else {
+        // If the POST fails, fall back to opening the user's mail client
+        throw new Error('Form submit failed');
+      }
+    } catch (err) {
+      // fallback to mailto: if AJAX submit fails
+      try {
+        const to = 'tharushadenuwan35@gmail.com';
+        const subject = encodeURIComponent(formData.subject || 'Contact from portfolio');
+        const bodyLines = [
+          `Name: ${formData.name}`,
+          `Email: ${formData.email}`,
+          '',
+          formData.message,
+        ];
+        const body = encodeURIComponent(bodyLines.join('\n'));
+        const mailto = `mailto:${to}?subject=${subject}&body=${body}`;
+        window.location.href = mailto;
+        setIsSubmitting(false);
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+        setTimeout(() => setSubmitStatus(''), 3000);
+      } catch (err2) {
+        setIsSubmitting(false);
+        setSubmitStatus('error');
+        setTimeout(() => setSubmitStatus(''), 3000);
+      }
+    }
   };
 
 
@@ -212,45 +259,6 @@ export default function ConnectSection() {
                 </div>
               )}
             </form>
-
-            {/* Contact Info Footer */}
-            {/* <div className="mt-8 pt-6 border-t border-gray-100">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
-                <div className="flex flex-col items-center space-y-2">
-                  <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
-                    <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-gray-800">Email</p>
-                    <p className="text-xs text-gray-600">Quick Response</p>
-                  </div>
-                </div>
-                <div className="flex flex-col items-center space-y-2">
-                  <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
-                    <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-gray-800">Chat</p>
-                    <p className="text-xs text-gray-600">Instant Reply</p>
-                  </div>
-                </div>
-                <div className="flex flex-col items-center space-y-2">
-                  <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
-                    <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-gray-800">Social</p>
-                    <p className="text-xs text-gray-600">Stay Connected</p>
-                  </div>
-                </div>
-              </div>
-            </div> */}
           </div>
 
         </div>
